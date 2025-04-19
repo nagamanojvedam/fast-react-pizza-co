@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer components {
+  .tw-input {
+    @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:ring focus:ring-yellow-400 focus:outline-none md:px-6 md:py-3;
+  }
+  .tw-loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(#facc15 0 0);
+    background:
+      var(--c) 0% 50%,
+      var(--c) 50% 50%,
+      var(--c) 100% 50%;
+    animation: spinner 1s infinite linear alternate;
+  }
+  @keyframes spinner {
+    0% {
+      background-size:
+        20% 50%,
+        20% 50%,
+        20% 50%;
+    }
+    20% {
+      background-size:
+        20% 20%,
+        20% 50%,
+        20% 50%;
+    }
+    40% {
+      background-size:
+        20% 100%,
+        20% 20%,
+        20% 50%;
+    }
+    60% {
+      background-size:
+        20% 50%,
+        20% 100%,
+        20% 20%;
+    }
+    80% {
+      background-size:
+        20% 50%,
+        20% 50%,
+        20% 100%;
+    }
+    100% {
+      background-size:
+        20% 50%,
+        20% 50%,
+        20% 50%;
+    }
+  }
+}
