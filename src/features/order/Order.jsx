@@ -14,7 +14,6 @@ function Order() {
   const order = useLoaderData();
   const fetcher = useFetcher();
 
-  console.log(fetcher);
   const {
     id,
     status,

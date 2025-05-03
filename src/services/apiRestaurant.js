@@ -1,8 +1,8 @@
-const MY_SERVER_URL = "http://localhost:5000";
-const API_URL = "https://react-fast-pizza-api.jonas.io/api";
+const MY_SERVER_URL = "http://localhost:3000/api/v1";
+// const API_URL = "https://react-fast-pizza-api.jonas.io/api";
 
 export async function getMenu() {
-  const response = await fetch(`${API_URL}/menu`);
+  const response = await fetch(`${MY_SERVER_URL}/menu`);
 
   if (!response.ok) throw new Error("Failed getting menu");
 
@@ -13,16 +13,16 @@ export async function getMenu() {
 
 export async function getOrders() {
   // const response = await fetch(`${API_URL}/orders`);
-  const response = await fetch(`${MY_SERVER_URL}/orders`);
+  const response = await fetch(`${MY_SERVER_URL}/order`);
   if (!response.ok) throw Error("Failed to get yours orders");
 
-  const data = await response.json();
+  const { data } = await response.json();
 
   return data;
 }
 
 export async function createOrder(newOrder) {
-  const response = await fetch(`${API_URL}/order`, {
+  const response = await fetch(`${MY_SERVER_URL}/order`, {
     method: "POST",
     body: JSON.stringify(newOrder),
     headers: {
@@ -33,12 +33,11 @@ export async function createOrder(newOrder) {
   if (!response.ok) throw new Error("Failed creating your order");
 
   const { data } = await response.json();
-  console.log(data);
   return data;
 }
 
 export async function updateOrder(id, updateData) {
-  const response = await fetch(`${API_URL}/order/${id}`, {
+  const response = await fetch(`${MY_SERVER_URL}/order/${id}`, {
     method: "PATCH",
     body: JSON.stringify(updateData),
     headers: {
@@ -50,11 +49,10 @@ export async function updateOrder(id, updateData) {
 }
 
 export async function getOrder(id) {
-  const response = await fetch(`${API_URL}/order/${id}`);
+  const response = await fetch(`${MY_SERVER_URL}/order/${id}`);
 
   if (!response.ok) throw new Error("Cannot get this order");
 
   const { data } = await response.json();
-
   return data;
 }
