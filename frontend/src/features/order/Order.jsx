@@ -40,7 +40,9 @@ function Order() {
               Priority
             </span>
           )}
-          <span className="rounded-full bg-green-500 px-3 py-1 text-sm font-semibold tracking-wide text-green-50 uppercase">
+          <span
+            className={`rounded-full ${status === "delivered" ? "bg-green-500" : "bg-orange-500"} px-3 py-1 text-sm font-semibold tracking-wide text-green-50 uppercase`}
+          >
             Order {status}
           </span>
         </div>

@@ -14,7 +14,7 @@ const cartSlice = createSlice({
     removeItem(state, action) {
       state.cart = state.cart.filter((item) => item.pizzaId !== action.payload);
     },
-    decreaseItemQuantity: function (state, action) {
+    decreaseItemQuantity(state, action) {
       state.cart.forEach((item) => {
         if (item.pizzaId === action.payload) {
           item.quantity--;
@@ -24,7 +24,7 @@ const cartSlice = createSlice({
         }
       });
     },
-    increaseItemQuantity: function (state, action) {
+    increaseItemQuantity(state, action) {
       state.cart.forEach((item) => {
         if (item.pizzaId === action.payload) {
           item.quantity++;
